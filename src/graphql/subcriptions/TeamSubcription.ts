@@ -1,6 +1,6 @@
 export const teamChangeDetection = `
 subscription MySubscription {
-  onUpdateMetaScoringCompetition {
+  onUpdateMegatonCompetitionTeam {
     team_id
   }
 }

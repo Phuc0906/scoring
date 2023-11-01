@@ -31,17 +31,13 @@ mutation MyMutation {
 
 export const queryTeams = `
 query MyQuery {
-  listMetaScoringCompetitions {
+  listMegatonCompetitionTeams {
     items {
       board
       brand
       draw
-      final
       lose
-      quarter
-      round_16
-      round_32
-      semi
+      score
       team
       team_id
       win

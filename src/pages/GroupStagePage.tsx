@@ -14,6 +14,7 @@ import {teamChangeDetection} from "../graphql/subcriptions/TeamSubcription";
 import {onUpdateMatch, onCreateMatch} from "../graphql/subcriptions/Match";
 import {getAllMatches, queryMatchByBoard} from "../graphql/query/MatchQuery";
 import {MatchProps} from "./LiveMatchesPage";
+import TBD_LOGO from '../assests/TBD_LOGO.png'
 
 const brandArr = [
     {
@@ -35,18 +36,14 @@ const brandArr = [
 ]
 
 export interface APITeamProps {
-    "team_id": string,
-    "team": string,
-    "win": number,
-    "draw": number,
-    "lose": number,
-    "board": string,
-    "round_32": string,
-    "round_16": string,
-    "quarter": string,
-    "semi": string,
-    "final": string,
-    "brand": number
+    board: string,
+    brand: number
+    draw: number,
+    lose: number,
+    score: number
+    team: string
+    team_id: string
+    win: number
 }
 
 export interface GroupPageRowProps {
@@ -63,7 +60,7 @@ const GroupStageRowBuilder: React.FC<GroupPageRowProps> = ({team, idx}) => {
     return <div className={`flex py-6 px-2 justify-between items-center mr-10`}>
         <div className={`flex items-center gap-4 w-fit text-center ${windowSize.width > 700 ? 'text-2xl' : 'text-lg'}`}>
             <div className={`${windowSize.width > 700 ? 'w-16' : 'w-8'}`}>
-                <img src={brandArr[team.brand - 1].logo} />
+                <img src={(team.team.length === 0) ? TBD_LOGO : brandArr[team.brand - 1].logo} />
             </div>
             <div>
                 <label>{team.team}</label>
@@ -110,40 +107,30 @@ const GroupStagePage = () => {
         });
 
 
-        // useEffect(() => {
-        //     const fetch_match = async () => {
-        //         const response = await API.graphql(graphqlOperation(queryMatchByBoard(detectMatch))) as GraphQLResult<any>;
-        //         const matchTemp = response.data?.listMegatonMatches.items
-        //         if (matchTemp.length !== 0) {
-        //             setMatch(matchTemp[0]);
-        //         }
-        //     }
-        //
-        //
-        //     (API.graphql(graphqlOperation(onUpdateMatch)) as any).subscribe((eventData: any) =>
-        //     {
-        //         const result = eventData.value.data.onUpdateMegatonMatch;
-        //         console.log(result);
-        //         if (result.board === detectMatch) {
-        //             setMatch(result);
-        //         }
-        //
-        //
-        //     });
-        //
-        //     (API.graphql(graphqlOperation(onCreateMatch)) as any).subscribe((eventData: any) =>
-        //     {
-        //         const result = eventData.value.data.onCreateMatch;
-        //         console.log(result);
-        //         if (result.board === detectMatch) {
-        //             setMatch(result);
-        //         }
-        //
-        //
-        //     });
-        //     fetch_match().then(r => console.log(r));
-        //
-        // }, [])
+        useEffect(() => {
+            const fetch_match = async () => {
+                const response = await API.graphql(graphqlOperation(queryMatchByBoard(detectMatch))) as GraphQLResult<any>;
+                const matchTemp = response.data?.listMegatonMatches.items
+                if (matchTemp.length !== 0) {
+                    setMatch(matchTemp[0]);
+                }
+            }
+
+
+            (API.graphql(graphqlOperation(onUpdateMatch)) as any).subscribe((eventData: any) =>
+            {
+                fetch_match().then(r => console.log(r));
+
+
+            });
+
+            (API.graphql(graphqlOperation(onCreateMatch)) as any).subscribe((eventData: any) =>
+            {
+                fetch_match().then(r => console.log(r));
+            });
+            fetch_match().then(r => console.log(r));
+
+        }, [])
 
 
         return <div className={`absolute w-fit border-2 border-red-300 ${pos} text-sm  px-2.5 py-1  bg-white text-black rounded-xl`}>
@@ -154,14 +141,14 @@ const GroupStagePage = () => {
                 <div className="flex flex-col items-center">
                     <div>
                         <div className="w-10">
-                            <img src={brandArr[match.brand1 - 1].logo} />
+                            <img src={(match.team1.length === 0) ? TBD_LOGO : brandArr[match.brand1 - 1].logo} />
                         </div>
                     </div>
-                    <div>
+                    <div className={`${match.score1 > match.score2 ? 'text-red-700' : ''}`}>
                         <label>{match.team1.length === 0 ? 'TBD' : match.team1}</label>
                     </div>
                 </div>
-                <div className="flex gap-4 items-center">
+                <div className="flex gap-4 items-center invisible">
                     <div>
                         <label>{match.score1 - 1}</label>
                     </div>
@@ -175,10 +162,10 @@ const GroupStagePage = () => {
                 <div className="flex flex-col items-center">
                     <div>
                         <div className="w-10">
-                            <img src={brandArr[match.brand2 - 1].logo} />
+                            <img src={(match.team2.length === 0) ? TBD_LOGO : brandArr[match.brand2 - 1].logo} />
                         </div>
                     </div>
-                    <div>
+                    <div className={`${match.score2 > match.score1 ? 'text-red-700' : ''}`}>
                         <label>{match.team2.length === 0 ? 'TBD' : match.team2}</label>
                     </div>
                 </div>
