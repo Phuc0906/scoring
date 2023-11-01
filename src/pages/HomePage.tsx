@@ -101,15 +101,32 @@ const HomePage = () => {
                 const response = await API.graphql(graphqlOperation(queryTeams)) as GraphQLResult<any>;
                 const teamsTemp = response.data?.listMegatonCompetitionTeams.items;
                 teamsTemp.sort((a: APITeamProps, b: APITeamProps) => {
-                    if (a.score === 0 && b.score === 0) {
-                        return -1;
-                    }else if (a.score !== 0 && b.score === 0) {
+                    if (a.score === 1 && b.score === 1) {
                         return 1;
+                    }else if (a.score !== 1 && b.score === 1) {
+                        return -1;
                     }
 
                     return a.score - b.score;
                 });
-                setTeams(teamsTemp);
+
+                const filteredTeams = [];
+                // Append none 0
+                for (let i = 0; i < teamsTemp.length; i++) {
+                    if (teamsTemp[i].score !== 1) {
+                        filteredTeams.push(teamsTemp[i]);
+                    }
+                }
+
+                // Append 0 item
+                for (let i = 0; i < teamsTemp.length; i++) {
+                    if (teamsTemp[i].score === 1){
+                        filteredTeams.push(teamsTemp[i]);
+                    }
+                }
+
+
+                setTeams(filteredTeams);
                 setGroups(groupByGroup(teamsTemp));
                 await processMaxId(teamsTemp);
 
