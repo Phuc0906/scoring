@@ -43,7 +43,7 @@ const NavBar = () => {
                 </svg>
             </div>}
         </div>
-        <div className={`absolute w-full bg-[#222222] transition-all duration-500 ${burgerClick ? 'top-30' : '-top-[150px]'}`}>
+        <div className={`absolute z-50 w-full bg-[#222222] transition-all duration-500 ${burgerClick ? 'top-30' : '-top-[150px]'}`}>
             <div className="flex flex-col gap-0 ">
                 <div className="w-full text-center text-2xl text-gray-100">
                     <button onClick={() => {
