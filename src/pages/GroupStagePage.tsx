@@ -144,7 +144,7 @@ const GroupStagePage = () => {
                             <img src={(match.team1.length === 0) ? TBD_LOGO : brandArr[match.brand1 - 1].logo} />
                         </div>
                     </div>
-                    <div className={`${match.score1 > match.score2 ? 'text-red-700' : ''}`}>
+                    <div className={`${match.score1 > match.score2 ? 'text-red-600 font-bold' : ''}`}>
                         <label>{match.team1.length === 0 ? 'TBD' : match.team1}</label>
                     </div>
                 </div>
@@ -165,8 +165,9 @@ const GroupStagePage = () => {
                             <img src={(match.team2.length === 0) ? TBD_LOGO : brandArr[match.brand2 - 1].logo} />
                         </div>
                     </div>
-                    <div className={`${match.score2 > match.score1 ? 'text-red-900' : ''}`}>
+                    <div className={`${match.score2 > match.score1 ? 'text-red-600 font-bold' : ''}`}>
                         <label>{match.team2.length === 0 ? 'TBD' : match.team2}</label>
+
                     </div>
                 </div>
             </div>
