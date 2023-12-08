@@ -78,7 +78,7 @@ const GroupStageRowBuilder: React.FC<GroupStageRowBuilderProps> = ({team, idx}) 
                 <label>{team.lose - 1}</label>
             </div>
             <div className={` text-center   ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl w-16' : 'text-lg w-12'}`}>
-                <label>{(team.score === 1) ? '0' : team.score} s</label>
+                <label>{(team.score === 1) ? '0' : team.score.toFixed(2)} s</label>
             </div>
             <div className={` text-center   ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl w-16' : 'text-lg w-12'}`}>
                 <label>{(team.win - 1)*3 + (team.draw - 1)}</label>
