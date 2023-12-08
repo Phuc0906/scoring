@@ -1,7 +1,15 @@
 export const teamChangeDetection = `
 subscription MySubscription {
-  onUpdateMegatonCompetitionTeam {
+  onUpdateMegatonCompetitionTeamTable {
     team_id
   }
 }
+`
+
+export const racingTeamsChangeDetection = `
+    subscription MySubscription {
+      onUpdateRacingTeam {
+        team_id
+      }
+    }
 `

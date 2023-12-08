@@ -41,7 +41,7 @@ query MyQuery {
 export const queryMatchByBoard = (board: string) => {
     return `
     query MyQuery {
-      listMegatonMatches(filter: {board: {eq: "${board}"}}) {
+      listMegatonMatches(limit: 200, filter: {board: {eq: "${board}"}}) {
         items {
           board
           brand1
@@ -73,6 +73,20 @@ export const createMatch = (board: string, brand1: number, brand2: number, live:
         table
         team1
         team2
+      }
+    }
+    `
+};
+
+export const getIsMatchSetting = (category: string) => {
+    return `
+    query MyQuery {
+      listMegatonMatches(filter: {board: {contains: "${category}"}}) {
+        items {
+          match_id
+          team1
+          team2
+        }
       }
     }
     `

@@ -18,20 +18,11 @@ export const createTeam = (teamId: string, team: string, brand: number) => {
 `
 }
 
-export const updateTeamBoard = (team_id: string, board: string) => {
-    return `
-mutation MyMutation {
-  updateMetaScoringCompetition(input: {team_id: "${team_id}", board: "${board}"}) {
-    team_id
-  }
-}
-`
-}
 
 
 export const queryTeams = `
 query MyQuery {
-  listMegatonCompetitionTeams(limit: 40)  {
+  listMegatonCompetitionTeamTables(limit: 40)  {
     items {
       board
       brand
@@ -45,6 +36,25 @@ query MyQuery {
   }
 }
 `;
+
+export const queryTeamByCategory = (category: string) => {
+    return `
+query MyQuery {
+  listMegatonCompetitionTeamTables(filter: {board: {contains: "${category}"}})  {
+    items {
+      board
+      brand
+      draw
+      lose
+      score
+      team
+      team_id
+      win
+    }
+  }
+}
+`
+}
 
 export const queryAllTeams = `
 query MyQuery {
@@ -66,4 +76,21 @@ query MyQuery {
   }
 }
 `
+
+export const getRacingTeams = (board: string) => {
+     return `
+        query MyQuery {
+          listRacingTeams(filter: {category: {eq: "${board}"}}) {
+            items {
+              team_id
+              team
+              round2
+              round1
+              category
+              brand
+            }
+          }
+        }
+     `
+}
 
