@@ -11,6 +11,8 @@ import {GraphQLResult} from "@aws-amplify/api";
 import {groupByGroup} from "../utils/utils";
 import {teamChangeDetection} from "../graphql/subcriptions/TeamSubcription";
 
+const MAX_SCREEN_SIZE = 1000;
+
 const brandArr = [
     {
         name: 'Royal',
@@ -57,28 +59,28 @@ const GroupStageRowBuilder: React.FC<GroupStageRowBuilderProps> = ({team, idx}) 
     const {windowSize} = useContext(AppContext) as AppContextProps;
 
     return <div className={`flex py-6 px-2 justify-between items-center `}>
-        <div className={`flex items-center gap-0 w-fit text-left ${windowSize.width > 700 ? 'text-2xl' : 'text-sm'}`}>
-            <div className={`${windowSize.width > 700 ? 'w-16' : 'w-10'}`}>
+        <div className={`flex items-center gap-0 w-fit text-left ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl' : 'text-sm'}`}>
+            <div className={`${windowSize.width > MAX_SCREEN_SIZE ? 'w-16' : 'w-10'}`}>
                 <img src={brandArr[team.brand - 1].logo} />
             </div>
             <div className="w-28">
                 <label>{team.team}</label>
             </div>
         </div>
-        <div className={`flex  ${windowSize.width > 700 ? 'gap-16 ' : 'gap-1'}`}>
-            <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-16' : 'text-lg w-12'}`}>
+        <div className={`flex  ${windowSize.width > MAX_SCREEN_SIZE ? 'gap-16 ' : 'gap-1'}`}>
+            <div className={` text-center ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl w-16' : 'text-lg w-12'}`}>
                 <label>{team.win - 1}</label>
             </div>
-            <div className={` text-center   ${windowSize.width > 700 ? 'text-2xl w-16' : 'text-lg w-12'}`}>
+            <div className={` text-center   ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl w-16' : 'text-lg w-12'}`}>
                 <label>{team.draw - 1}</label>
             </div >
-            <div className={` text-center   ${windowSize.width > 700 ? 'text-2xl w-16' : 'text-lg w-12'}`}>
+            <div className={` text-center   ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl w-16' : 'text-lg w-12'}`}>
                 <label>{team.lose - 1}</label>
             </div>
-            <div className={` text-center   ${windowSize.width > 700 ? 'text-2xl w-16' : 'text-lg w-12'}`}>
+            <div className={` text-center   ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl w-16' : 'text-lg w-12'}`}>
                 <label>{(team.score === 1) ? '0' : team.score} s</label>
             </div>
-            <div className={` text-center   ${windowSize.width > 700 ? 'text-2xl w-16' : 'text-lg w-12'}`}>
+            <div className={` text-center   ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl w-16' : 'text-lg w-12'}`}>
                 <label>{(team.win - 1)*3 + (team.draw - 1)}</label>
             </div>
         </div>
@@ -191,23 +193,23 @@ const GroupByCategory = ({category}: CategoryGroupProps) => {
         </div>
         <div className="bg-[#303030]  w-full py-2 px-3 rounded-b-xl pt-2 border-[#171717] border-2">
             <div className={`flex ${isView ? '' : 'hidden'} justify-between items-center border-b-2 border-b-gray-400 pb-6`}>
-                <div className={` text-center ${windowSize.width > 700 ? 'text-2xl' : 'text-sm'} w-40`}>
+                <div className={` text-center ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl' : 'text-sm'} w-40`}>
                     <label>Đội</label>
                 </div>
-                <div className={`flex  ${windowSize.width > 700 ? 'gap-16 ' : 'gap-1'}`}>
-                    <div className={`text-center ${windowSize.width > 700 ? 'text-2xl w-16' : 'text-sm w-12'}`}>
+                <div className={`flex  ${windowSize.width > MAX_SCREEN_SIZE ? 'gap-16 ' : 'gap-1'}`}>
+                    <div className={`text-center ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl w-16' : 'text-sm w-12'}`}>
                         <label>Win</label>
                     </div>
-                    <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-16' : 'text-sm w-12'}`}>
+                    <div className={` text-center ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl w-16' : 'text-sm w-12'}`}>
                         <label>Draw</label>
                     </div>
-                    <div className={`text-center ${windowSize.width > 700 ? 'text-2xl w-16' : 'text-sm w-12'}`}>
+                    <div className={`text-center ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl w-16' : 'text-sm w-12'}`}>
                         <label>Lose</label>
                     </div>
-                    <div className={`text-center ${windowSize.width > 700 ? 'text-2xl w-16' : 'text-sm w-12'}`}>
+                    <div className={`text-center ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl w-16' : 'text-sm w-12'}`}>
                         <label>Time</label>
                     </div>
-                    <div className={`text-center ${windowSize.width > 700 ? 'text-2xl w-16' : 'text-sm w-12'}`}>
+                    <div className={`text-center ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl w-16' : 'text-sm w-12'}`}>
                         <label>Points</label>
                     </div>
                 </div>
