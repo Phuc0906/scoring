@@ -21,13 +21,13 @@ const HomePage = () => {
     const {windowSize} = useContext(AppContext) as AppContextProps;
 
     return <div className="mt-5">
-        {/*<div className={`text-white mt-10   ${windowSize.width > 700 ? 'mx-10 py-5 px-7 bg-[#222222]' : 'text-center mx-4'} rounded-3xl`}>*/}
-        {/*    <div className="font-bold text-4xl">*/}
-        {/*        <label>DRONE</label>*/}
-        {/*    </div>*/}
-        {/*    <RacingTable category={"DRONE"} title={"DRONE TABLE"}/>*/}
-        {/*    <RacingTable category={"DRONE_REGULAR"} title={"DRONE REGULAR TABLE"}/>*/}
-        {/*</div>*/}
+        <div className={`text-white mt-10   ${windowSize.width > 700 ? 'mx-10 py-5 px-7 bg-[#222222]' : 'text-center mx-4'} rounded-3xl`}>
+            <div className="font-bold text-4xl">
+                <label>DRONE</label>
+            </div>
+            <RacingTable category={"DRONE_UNI"} title={"DRONE UNIVERSITY"}/>
+            {/*<RacingTable category={"DRONE_REGULAR"} title={"DRONE REGULAR TABLE"}/>*/}
+        </div>
         {/*<div className={`text-white mt-10   ${windowSize.width > 700 ? 'mx-10 py-5 px-7 bg-[#222222]' : 'text-center mx-4'} rounded-3xl`}>*/}
         {/*    <div className="font-bold text-4xl">*/}
         {/*        <label>Racing</label>*/}

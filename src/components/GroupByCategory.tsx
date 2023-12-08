@@ -174,7 +174,7 @@ const GroupByCategory = ({category}: CategoryGroupProps) => {
                 </svg>
             </div>
             <div>
-                <label>BẢNG {(category.split("_")[category.split("_").length - 1])}</label>
+                <label>GROUP {(category.split("_")[category.split("_").length - 1])}</label>
             </div>
             <div onClick={() => {
                 setIsView(!isView);
@@ -194,7 +194,7 @@ const GroupByCategory = ({category}: CategoryGroupProps) => {
         <div className="bg-[#303030]  w-full py-2 px-3 rounded-b-xl pt-2 border-[#171717] border-2">
             <div className={`flex ${isView ? '' : 'hidden'} justify-between items-center border-b-2 border-b-gray-400 pb-6`}>
                 <div className={` text-center ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl' : 'text-sm'} w-40`}>
-                    <label>Đội</label>
+                    <label>Team</label>
                 </div>
                 <div className={`flex  ${windowSize.width > MAX_SCREEN_SIZE ? 'gap-16 ' : 'gap-1'}`}>
                     <div className={`text-center ${windowSize.width > MAX_SCREEN_SIZE ? 'text-2xl w-16' : 'text-sm w-12'}`}>

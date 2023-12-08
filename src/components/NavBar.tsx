@@ -23,12 +23,12 @@ const NavBar = () => {
                 }} >
                     <Link to={`/`} onClick={() => {
                         window.location.href = '/';
-                    }}>TRANG CHỦ</Link>
+                    }}>HOME</Link>
                 </div>
                 <div onMouseEnter={() => {
                     setOnHoverGroup(true);
                 }} className={`relative w-fit`}>
-                    <Link to={`/group-stage`} >VÒNG LOẠI TRỰC TIẾP</Link>
+                    <Link to={`/group-stage`} >KNOCK OUT</Link>
                 </div>
                 {/*<div onMouseEnter={() => {*/}
                 {/*    setOnHoverGroup(false);*/}
@@ -49,13 +49,13 @@ const NavBar = () => {
                     <button onClick={() => {
                         navigate('/');
                         window.location.reload();
-                    }}  className="w-full h-full py-4 px-1 hover:bg-gray-500">Trang chủ</button>
+                    }}  className="w-full h-full py-4 px-1 hover:bg-gray-500">HOME</button>
                 </div>
                 <div className="w-full text-center text-2xl text-gray-100">
                     <button onClick={() => {
                         navigate('/group-stage');
                         window.location.reload();
-                    }} className="w-full h-full py-4 px-1 hover:bg-gray-500">Vòng loại trực tiếp</button>
+                    }} className="w-full h-full py-4 px-1 hover:bg-gray-500">KNOCK OUT</button>
                 </div>
                 {/*<label>Trang chu</label>*/}
             </div>

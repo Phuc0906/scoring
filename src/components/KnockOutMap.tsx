@@ -19,7 +19,7 @@ const KnockOutMap = ({matchCategory}: KnockOutMapProps) => {
         {/*Quarter left*/}
         <div className=" flex w-fit text-center flex-col gap-7 mt-10">
             <div>
-                <label>Vòng tứ kết</label>
+                <label>Quarter Final</label>
             </div>
             <div className="mt-10 relative flex flex-row items-center justify-center w-[250px] h-[440px] border-t-2 border-r-2 border-b-2 border-orange-400 pr-5">
                 <KnockOutMatch pos={`-top-10`} title={``} detectMatch={`${matchCategory}_quarter_1`}/>
@@ -33,7 +33,7 @@ const KnockOutMap = ({matchCategory}: KnockOutMapProps) => {
         {/*Semi left*/}
         <div className=" flex w-fit text-center flex-col gap-7 mt-10">
             <div>
-                <label>Bán kết</label>
+                <label>Semi Final</label>
             </div>
             <div className="w-[270px] h-[490px] flex flex-col justify-center ">
                 <div className="pl-8 relative flex flex-row items-center justify-center h-[2px] my-auto bg-orange-500">
@@ -54,15 +54,15 @@ const KnockOutMap = ({matchCategory}: KnockOutMapProps) => {
         {/*Final*/}
         <div className=" flex w-fit text-center flex-col gap-7 mt-10">
             <div>
-                <label>Chung kết</label>
+                <label>Final</label>
             </div>
             <div className="w-[285px] h-[690px] pt-[130px] ">
                 <div className="relative flex flex-col items-center justify-center h-[240px]  my-auto border-2 border-orange-500">
-                    <KnockOutMatch pos={`-top-12`} title={`Chung kết`} detectMatch={`${matchCategory}_final`}/>
+                    <KnockOutMatch pos={`-top-12`} title={`Final`} detectMatch={`${matchCategory}_final`}/>
                     <div className="w-28">
                         <img src={finalLogo} />
                     </div>
-                    <KnockOutMatch pos={`-bottom-12`} title={`Tranh hạng ba`} detectMatch={`${matchCategory}_third`}/>
+                    <KnockOutMatch pos={`-bottom-12`} title={`Third Place`} detectMatch={`${matchCategory}_third`}/>
                 </div>
             </div>
         </div>
@@ -78,7 +78,7 @@ const KnockOutMap = ({matchCategory}: KnockOutMapProps) => {
         </div>
         <div className=" flex w-fit text-center flex-col gap-7 mt-10">
             <div>
-                <label>Bán kết</label>
+                <label>Semi Final</label>
             </div>
             <div className="w-[270px] h-[490px] flex flex-col justify-center ">
                 <div className="pr-8 relative flex flex-row items-center justify-center h-[2px] my-auto bg-orange-500">
@@ -89,7 +89,7 @@ const KnockOutMap = ({matchCategory}: KnockOutMapProps) => {
         {/*Quarter left*/}
         <div className=" flex w-fit text-center flex-col gap-7 mt-10">
             <div>
-                <label>Vòng tứ kết</label>
+                <label>Quater Final</label>
             </div>
             <div className="mt-10 relative flex flex-row items-center justify-center w-[250px] h-[440px] border-t-2 border-l-2 border-b-2 border-orange-400 pl-5">
                 <KnockOutMatch pos={`-top-10`} title={``} detectMatch={`${matchCategory}_quarter_3`}/>

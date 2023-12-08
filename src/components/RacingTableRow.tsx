@@ -31,11 +31,11 @@ const RacingTableRow = ({team}: RacingTableRowProps) => {
     }, [])
 
     return <div className="flex justify-between items-center mt-5 pb-6">
-        <div className={` text-center flex items-center gap-3 ${windowSize.width > 700 ? 'text-2xl w-80' : 'text-xl w-44'}`}>
-            <div className={`${windowSize.width > 700 ? 'w-16' : 'w-16'}`}>
+        <div className={`w-fit text-left flex items-center gap-3 ${windowSize.width > 700 ? 'text-2xl w-80' : 'text-xl w-44'}`}>
+            <div className={`${windowSize.width > 700 ? 'w-[80px]' : 'w-[50px]'}`}>
                 <img src={brandArr[team.brand - 1].logo}/>
             </div>
-            <div className={`${(windowSize.width > 700) ? 'text-3xl' : 'text-sm'}`}>
+            <div className={`${(windowSize.width > 700) ? 'text-3xl w-[200px]' : 'text-sm w-[100px]'}`}>
                 <label>{team.team}</label>
             </div>
         </div>
