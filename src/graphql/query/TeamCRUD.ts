@@ -40,7 +40,7 @@ query MyQuery {
 export const queryTeamByCategory = (category: string) => {
     return `
 query MyQuery {
-  listMegatonCompetitionTeamTables(filter: {board: {contains: "${category}"}})  {
+  listMegatonCompetitionTeamTables(filter: {board: {contains: "${category}"}}, limit: 500)  {
     items {
       board
       brand
@@ -80,7 +80,7 @@ query MyQuery {
 export const getRacingTeams = (board: string) => {
      return `
         query MyQuery {
-          listRacingTeams(filter: {category: {eq: "${board}"}}) {
+          listRacingTeams(filter: {category: {eq: "${board}"}}, limit: 500) {
             items {
               team_id
               team

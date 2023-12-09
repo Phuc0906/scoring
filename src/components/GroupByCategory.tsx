@@ -4,6 +4,8 @@ import team1 from "../assests/logo royal.png";
 import team2 from "../assests/logo skis.png";
 import team3 from "../assests/logo HUTECH.png";
 import team4 from "../assests/logo CIS.png";
+import team5 from '../assests/VAS.png';
+import team6 from '../assests/kr_flag.png'
 import {AppContext, AppContextProps} from "../App";
 import {API, graphqlOperation} from "aws-amplify";
 import {queryTeamByCategory, queryTeams} from "../graphql/query/TeamCRUD";
@@ -29,6 +31,16 @@ const brandArr = [
     {
         name: 'CIS',
         logo: team4
+    }
+    ,
+    {
+        name: 'VAS',
+        logo: team5
+    }
+    ,
+    {
+        name: 'KOREA',
+        logo: team6
     }
 ]
 
@@ -109,7 +121,9 @@ const GroupByCategory = ({category}: CategoryGroupProps) => {
             fetch().then(r => console.log(r));
         });
 
-        fetch().then(r => console.log(r));
+        fetch().then(r => {
+
+        });
     }, []);
 
     const sortTeam = (group: APITeamProps[]) => {
@@ -120,7 +134,6 @@ const GroupByCategory = ({category}: CategoryGroupProps) => {
             const rootTeamScore = (processGroup[i].win - 1) * 3 + (processGroup[i].draw - 1);
             for (let k = 0; k < processGroup.length; k++) {
                 const comparedTeam = (processGroup[k].win - 1) * 3 + (processGroup[k].draw - 1);
-                console.log("Compare: " + comparedTeam + " - " + rootTeamScore)
                 if (rootTeamScore > comparedTeam) {
                     const tmp = processGroup[i];
                     processGroup[i] = processGroup[k];
@@ -140,7 +153,6 @@ const GroupByCategory = ({category}: CategoryGroupProps) => {
             const rootTeamScore = (processGroup[i].win - 1) * 3 + (processGroup[i].draw - 1);
             for (let k = 0; k < processGroup.length; k++) {
                 const comparedTeam = (processGroup[k].win - 1) * 3 + (processGroup[k].draw - 1);
-                console.log("Compare: " + comparedTeam + " - " + rootTeamScore)
                 if (rootTeamScore > comparedTeam) {
                     const tmp = processGroup[i];
                     processGroup[i] = processGroup[k];
@@ -155,9 +167,8 @@ const GroupByCategory = ({category}: CategoryGroupProps) => {
                 }
             }
         }
-
-        console.log(processGroup);
         setSortedGroup(processGroup);
+        console.log()
     }
 
     useEffect(() => {
@@ -214,7 +225,7 @@ const GroupByCategory = ({category}: CategoryGroupProps) => {
                     </div>
                 </div>
             </div>
-            <div className={`flex ${isView ? '' : 'hidden'} flex-col gap-0 `}>
+            <div className={`flex ${isView ? '' : 'hidden'} h-fit flex-col gap-0 `}>
                 {sortedGroup.map((team, index) =><GroupStageRowBuilder idx={index} team={team} key={index}/>)}
             </div>
         </div>

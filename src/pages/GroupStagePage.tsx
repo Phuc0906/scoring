@@ -62,7 +62,7 @@ const GroupStagePage = () => {
             <div className="w-full text-center text-4xl text-white mb-16 mt-10">
                 <label>SUMO UNIVERSITY KNOCK OUT STAGE</label>
             </div>
-            <KnockOutMap matchCategory={"SUMO_UNI"}/>
+            <KnockOutMap matchCategory={"SUMO_REGULAR"}/>
         </div>
         {/*<div>*/}
         {/*    <div className="w-full text-center text-4xl text-white mb-16 mt-10">*/}

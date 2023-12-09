@@ -46,7 +46,6 @@ const RacingTable = ({category, title}: RacingTableProps) => {
                     }
                 }
             }
-            console.log(teamsTemp);
 
             const filteredTeams = [];
             // Append none 0
@@ -74,7 +73,6 @@ const RacingTable = ({category, title}: RacingTableProps) => {
                     filteredTeams.push(teamsTemp[i]);
                 }
             }
-            console.log(filteredTeams);
             setRacingTeams(filteredTeams);
         }
         fetchTeams().then(r => console.log(r));
@@ -82,7 +80,9 @@ const RacingTable = ({category, title}: RacingTableProps) => {
         (API.graphql(graphqlOperation(racingTeamsChangeDetection)) as any).subscribe((eventData: any) =>
         {
             setRacingTeams([]);
-            fetchTeams().then(r => console.log(r));
+            fetchTeams().then(r => {
+
+            });
         });
 
 
