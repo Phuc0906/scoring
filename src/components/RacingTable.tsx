@@ -117,17 +117,17 @@ const RacingTable = ({category, title}: RacingTableProps) => {
             </div>
             <div className={`bg-[#303030] w-full py-2 px-3 rounded-b-xl pt-2 border-[#171717] border-2 ${isView ? '' : 'hidden'}`}>
                 <div className="flex justify-between items-center border-b-2 border-b-gray-400 pb-6">
-                    <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-40' : 'text-xl w-20'}`}>
+                    <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-40' : 'text-sm w-20'}`}>
                         <label>Team</label>
                     </div>
-                    <div className={`flex ${windowSize.width > 700 ? 'gap-16' : 'gap-4'} mr-10`}>
-                        <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-28' : 'text-lg w-20'}`}>
+                    <div className={`flex ${windowSize.width > 700 ? 'gap-16' : 'gap-0.5'} `}>
+                        <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-28' : 'text-sm w-16'}`}>
                             <label>Round 1</label>
                         </div>
-                        <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-28' : 'text-lg w-20'}`}>
+                        <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-28' : 'text-sm w-16'}`}>
                             <label>Round 2</label>
                         </div>
-                        <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-28' : 'text-lg w-20'}`}>
+                        <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-28' : 'text-sm w-16'}`}>
                             <label>Result</label>
                         </div>
                     </div>

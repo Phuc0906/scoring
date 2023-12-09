@@ -39,14 +39,14 @@ const RacingTableRow = ({team}: RacingTableRowProps) => {
                 <label>{team.team}</label>
             </div>
         </div>
-        <div className={`flex ${windowSize.width > 700 ? 'gap-16' : 'gap-4'} mr-10`}>
-            <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-28' : 'text-lg w-20'}`}>
+        <div className={`flex ${windowSize.width > 700 ? 'gap-16' : 'gap-0.5'} `}>
+            <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-28' : 'text-sm w-16'}`}>
                 <label>{(team.round1 === 1) ? 0 : team.round1} s</label>
             </div>
-            <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-28' : 'text-lg w-20'}`}>
+            <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-28' : 'text-sm w-16'}`}>
                 <label>{(team.round2 === 1) ? 0 : team.round2} s</label>
             </div>
-            <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-28' : 'text-lg w-20'}`}>
+            <div className={` text-center ${windowSize.width > 700 ? 'text-2xl w-28' : 'text-sm w-16'}`}>
                 <label>{finalScore} s</label>
             </div>
         </div>
