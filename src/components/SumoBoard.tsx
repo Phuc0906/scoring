@@ -22,10 +22,10 @@ const SumoBoard = () => {
             <label>SUMO</label>
         </div>
         <div className="flex flex-col gap-10 text-white mt-10 w-full mx-auto">
-            <GroupByCategory category={"SUMO_UNI_A"}/>
-            <GroupByCategory category={"SUMO_UNI_B"}/>
-            <GroupByCategory category={"SUMO_UNI_C"}/>
-            <GroupByCategory category={"SUMO_UNI_D"}/>
+            <GroupByCategory category={"SUMO_REGULAR_A"}/>
+            <GroupByCategory category={"SUMO_REGULAR_B"}/>
+            <GroupByCategory category={"SUMO_REGULAR_C"}/>
+            <GroupByCategory category={"SUMO_REGULAR_D"}/>
         </div>
     </div>
 }
