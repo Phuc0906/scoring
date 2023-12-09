@@ -47,6 +47,30 @@ const RacingTable = ({category, title}: RacingTableProps) => {
                 }
             }
 
+            for (let i = 0; i < teamsTemp.length; i++) {
+                for (let k = i; k < teamsTemp.length; k++) {
+                    let finalScore1 = 0;
+                    if ((teamsTemp[i].round1 !== 1) && (teamsTemp[i].round2 !== 1)) {
+                        finalScore1 = (teamsTemp[i].round1 > teamsTemp[i].round2) ? teamsTemp[i].round2 : teamsTemp[i].round1;
+                    }else if (teamsTemp[i].round1 !== 1) {
+                        finalScore1 = (teamsTemp[i].round1);
+                    }
+
+                    let finalScore2 = 0;
+                    if ((teamsTemp[k].round1 !== 1) && (teamsTemp[k].round2 !== 1)) {
+                        finalScore2 = (teamsTemp[k].round1 > teamsTemp[k].round2) ? teamsTemp[k].round2 : teamsTemp[k].round1;
+                    }else if (teamsTemp[k].round1 !== 1) {
+                        finalScore2 = (teamsTemp[k].round1);
+                    }
+
+                    if (finalScore1 > finalScore2) {
+                        const tmp = teamsTemp[i];
+                        teamsTemp[i] = teamsTemp[k];
+                        teamsTemp[k] = tmp;
+                    }
+                }
+            }
+
             const filteredTeams = [];
             // Append none 0
             for (let i = 0; i < teamsTemp.length; i++) {
