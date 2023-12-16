@@ -27,7 +27,7 @@ const NavBar = () => {
                 </div>
                 <div onMouseEnter={() => {
                     setOnHoverGroup(true);
-                }} className={`relative w-fit`}>
+                }} className={`relative w-fit hidden`}>
                     <Link to={`/group-stage`} >KNOCK OUT</Link>
                 </div>
                 {/*<div onMouseEnter={() => {*/}
@@ -51,7 +51,7 @@ const NavBar = () => {
                         window.location.reload();
                     }}  className="w-full h-full py-4 px-1 hover:bg-gray-500">HOME</button>
                 </div>
-                <div className="w-full text-center text-2xl text-gray-100">
+                <div className="w-full text-center text-2xl text-gray-100 hidden">
                     <button onClick={() => {
                         navigate('/group-stage');
                         window.location.reload();

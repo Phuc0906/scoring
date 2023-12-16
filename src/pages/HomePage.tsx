@@ -23,9 +23,9 @@ const HomePage = () => {
     return <div className="mt-5">
         <div className={`text-white mt-10   ${windowSize.width > 700 ? 'mx-10 py-5 px-7 bg-[#222222]' : 'text-center mx-4'} rounded-3xl`}>
             <div className="font-bold text-4xl">
-                <label>DRONE</label>
+                <label>Robotics</label>
             </div>
-            <RacingTable category={"DRONE_REGULAR"} title={"DRONE REGULAR"}/>
+            <RacingTable category={"RACING"} title={"RACING"}/>
             {/*<RacingTable category={"DRONE_REGULAR"} title={"DRONE REGULAR TABLE"}/>*/}
         </div>
         {/*<div className={`text-white mt-10   ${windowSize.width > 700 ? 'mx-10 py-5 px-7 bg-[#222222]' : 'text-center mx-4'} rounded-3xl`}>*/}
@@ -34,7 +34,7 @@ const HomePage = () => {
         {/*    </div>*/}
         {/*    <RacingTable category={"RACING"} title={"RACING TABLE"}/>*/}
         {/*</div>*/}
-        <SumoBoard/>
+        {/*<SumoBoard/>*/}
     </div>
 }
 
